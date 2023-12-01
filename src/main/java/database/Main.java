@@ -31,7 +31,7 @@ public class Main {
                     SchemeDB.COL_PRICE_PRODUCTS
 
             )));
-            preparedStatement.setInt(1, );
+//            preparedStatement.setInt(1,);
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
