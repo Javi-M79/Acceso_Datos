@@ -4,16 +4,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class GestionDB implements SchemeDB{
+public class GestionDB implements SchemeDB {
 
-    private String url = String.format("jdbc:mysql://%s/ %S", SchemeDB.HOST, SchemeDB.DATABASENAME);
-
-
-    private String user = "root";
-    private String password = "";
+    private static String url = String.format("jdbc:mysql://%s/ %S", SchemeDB.HOST, SchemeDB.DATABASENAME);
+    private static String user = "root";
+    private static String password = "";
 
 
-    private void createConnectio(){
+    private static void createConnection() {
 
         try {
             Class.forName("mysql.jdbc.cj.jdbc.Driver");
@@ -26,16 +24,17 @@ public class GestionDB implements SchemeDB{
 
 
     }
+
     static Connection connection;//Recordar hacerla static
 
     public static Connection getConnection() {
 
-        //Creamnos la conexion
-    //De esta manera evitamos cuellos de botella. Si no esta creada se crea, si no, la devolvemos.
-    if (connection==null) {
-        createConnection();
+        //Creamnos la conexion si no esta creada.
+        //De esta manera evitamos cuellos de botella. Si no esta creada se crea, si no, la devolvemos.
+        if (connection == null) {
+            createConnection();
 
-    }
+        }
         return connection;
     }
 }

@@ -11,6 +11,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Main {
     public static void main(String[] args) {
@@ -18,7 +20,24 @@ public class Main {
 
         Connection connection = GestionDB.getConnection();
 
+        try {
+            Statement statement = connection.createStatement();
+            String.format("INSERT INTO %s(%s,%s,%s,%s,%s,%s) VALUE (%d,%s,%s,%d,%d)", SchemeDB.TABLE_PRODUCTS,
+                    SchemeDB.COL_ID_PRODUCTS,
+                    SchemeDB.COL_NAME_PRODUCTS,
+                    SchemeDB.COL_DESCRIPTION_PRODUCTS,
+                    SchemeDB.COL_STOCK_PRODUCTS,
+                    SchemeDB.COL_PRICE_PRODUCTS
 
+            );//Debemos crear varias al tener diferentes columnas??
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+/*
         //Conexion a la base de datos
         try {
 
@@ -51,6 +70,7 @@ public class Main {
             System.out.println("Error enb la conexion I/O");
         }
     }
-
+*/
+    }
 
 }

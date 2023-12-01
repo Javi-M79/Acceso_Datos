@@ -13,20 +13,17 @@ public interface SchemeDB {
     String COL_PRICE_PRODUCTS = "Precio";
     String TABLE_EMPLOYEES = "Precio";
 
-    String COL_ID_EMPLOYEE ="Id_Empleado";
-    String COL_NAME_EMPLOYEE ="Id_Empleado";
-    String COL_SURNAME_EMPLOYEE ="Id_Empleado";
-    String COL_MAIL_EMPLOYEE ="Id_Empleado";
+    String COL_ID_EMPLOYEE = "Id_Empleado";
+    String COL_NAME_EMPLOYEE = "Id_Empleado";
+    String COL_SURNAME_EMPLOYEE = "Id_Empleado";
+    String COL_MAIL_EMPLOYEE = "Id_Empleado";
 
     String TABLE_ORDERS = "Pedidos";
-    String COL_ID_ORDERS ="Id_Pedido";
-    String COL_PRICE_ORDERS ="Precio_Total";
-
-
+    String COL_ID_ORDERS = "Id_Pedido";
+    String COL_PRICE_ORDERS = "Precio_Total";
 
     String TABLE_FAV = "Productos_Fav";
     String COL_ID_FAV = "Id_Fav";
-
 
 
 }
