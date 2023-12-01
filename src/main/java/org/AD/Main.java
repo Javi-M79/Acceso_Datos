@@ -14,8 +14,14 @@ public class Main {
 
             URL url = new URL("https://dummyjson.com/products");
             HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
-            BufferedReader lectura = new BufferedReader (new InputStreamReader(conexion.getInputStream()));
-//            System.out.println(lectura.readLine());//Comprobar que lee correctamente el JSON
+            BufferedReader reader = new BufferedReader(new InputStreamReader(conexion.getInputStream()));
+            StringBuffer stringBuffer = new StringBuffer();
+            String linea = null;
+            //Comprobacion de lectura correcta del JSON
+            while ((linea = reader.readLine())!=null){
+                stringBuffer.append(linea);
+            }
+
         } catch (IOException e) {
             System.out.println("Error enb la conexion I/O");
         }
