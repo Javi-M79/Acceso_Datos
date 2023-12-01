@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -19,24 +20,24 @@ public class Main {
 
 
         Connection connection = GestionDB.getConnection();
-
+//Debemos crear varias al tener diferentes columnas??
         try {
             Statement statement = connection.createStatement();
-            String.format("INSERT INTO %s(%s,%s,%s,%s,%s,%s) VALUE (%d,%s,%s,%d,%d)", SchemeDB.TABLE_PRODUCTS,
+            PreparedStatement preparedStatement = connection.prepareStatement((String.format("INSERT INTO %s(%s,%s,%s,%s,%s,%s) VALUE (?,?,?,?,?)", SchemeDB.TABLE_PRODUCTS,
                     SchemeDB.COL_ID_PRODUCTS,
                     SchemeDB.COL_NAME_PRODUCTS,
                     SchemeDB.COL_DESCRIPTION_PRODUCTS,
                     SchemeDB.COL_STOCK_PRODUCTS,
                     SchemeDB.COL_PRICE_PRODUCTS
 
-            );//Debemos crear varias al tener diferentes columnas??
-
+            )));
+            preparedStatement.setInt(1, );
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
-
+//CONEXION BB.DD
 /*
         //Conexion a la base de datos
         try {
