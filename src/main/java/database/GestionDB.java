@@ -14,7 +14,7 @@ public class GestionDB implements SchemeDB {
     private static void createConnection() {
 
         try {
-            Class.forName("mysql.jdbc.cj.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
             throw new RuntimeException(e);
